@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>JT bxSlider VirtueMart Products</name>
+	<author>Makeev Vladimir</author>
+	<creationDate>14/12/2012</creationDate>
+	<copyright>Copyright (C) 2011-2013 Jtemplate.ru. All Rights Reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>jtemplateru@yandex.ru</authorEmail>
+	<authoralt>http://www.jtemplate.ru</authoralt>
+	<version>1.0</version>
+	<description>Displays products such as Best sales, Featured products, Last products, Random products.</description>
+	<files>	
+		<filename module="mod_jt_bxslider_vm_product">mod_jt_bxslider_vm_product.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_jt_bxslider_vm_product.php</filename>
+		<filename>mod_jt_bxslider_vm_product.xml</filename>
+		<filename>helper.php</filename>
+		<folder>images</folder>
+		<folder>css</folder>
+		<folder>tmpl</folder>	
+		<folder>js</folder>
+		<folder>admin</folder>	       
+    </files>
+	
+	<languages>	
+		<language tag="en-GB">en-GB.mod_jt_bxslider_vm_product.ini</language>
+		<language tag="en-GB">en-GB.mod_jt_bxslider_vm_product.sys.ini</language>
+		<!--
+		<language tag="ru-RU">ru-RU.mod_jt_bxslider_vm_product.ini</language>
+		<language tag="ru-RU">ru-RU.mod_jt_bxslider_vm_product.sys.ini</language>
+		-->
+	</languages>
+		
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_virtuemart/elements">
+			
+				<field type="asset" path="modules/mod_jt_bxslider_vm_product/admin/" />
+				
+								
+				<field 
+					name="jt_id" 
+					type="text" 
+					default="id" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ID_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ID_DESC"/>
+				
+				<field
+					name="jt_vm_jscss"
+					type="list"
+					default="1"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_VM_JSCSS_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_VM_JSCSS_DESC" >
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				
+				<field
+						name="jt_load_jquery"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_LOAD_JQ_LABEL"
+						description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_LOAD_JQ_DESC" >
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				
+				<field
+						name="jt_jquery_ver"
+						type="text"
+						default="1.8.3"
+						label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JQUERYVER_LABEL"
+						description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JQUERYVER_DESC" />
+								
+				<!--
+				<field
+						name="jt_load_easing"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_LOAD_EASING_LABEL"
+						description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_LOAD_EASING_DESC" >
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				-->
+				
+				<field
+						name="jt_load_bxslider"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SCRIPT_BX_LABEL"
+						description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SCRIPT_BX_DESC" >
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				
+
+				
+				<field
+					name="jt_mode"
+					type="list"
+					default="horizontal"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_MODE_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_MODE_DESC" >
+					<option value="horizontal">horizontal</option>
+					<option value="vertical">vertical</option>
+					<option value="fade">fade</option>
+				</field>
+				
+				
+				<!-- start vm -->
+				
+				<field name="product_group" type="list" default="featured"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_DISPLAY"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_DISPLAY_DESC">
+					<option value="featured">MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_FEATURED_PRODUCTS</option>
+					<option value="latest">MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_LATEST_PRODUCTS</option>
+					<option value="random">MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_RANDOM_PRODUCTS</option>
+					<option value="topten">MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_BEST_SALES</option>
+				</field>
+				<field name="max_items" type="text" default="10"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_MAX_ITEMS"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_MAX_ITEMS_DESC" />
+
+
+				<field name="show_price" type="list" default="1"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SHOW_PRICE"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SHOW_PRICE_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_addtocart" type="list" default="1"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SHOW_ADDTOCART"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SHOW_ADDTOCART_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field name="filter_category" type="list" default="0"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_FILTER_CATEGORY"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_FILTER_CATEGORY_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="virtuemart_category_id" type="vmcategories"  value_field="category_name" label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_CATEGORY_ID" description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_CATEGORY_ID_DESC" />
+						
+				<!-- end vm -->
+				
+				<!-- <field
+					name="jt_random_start"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_RANDOM_START_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_RANDOM_START_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field> -->
+				
+
+				<!--
+				<field 
+					name="jt_width" 
+					type="text" 
+					default="960" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_WIDTH_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_WIDTH_DESC"/>
+										
+				<field 
+					name="jt_height" 
+					type="text" 
+					default="300" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_HEIGHT_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_HEIGHT_DESC"/>  
+				-->
+							
+
+				<field 
+					name="jt_min_slides" 
+					type="text" 
+					default="1" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_MIN_SLIDES_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_MIN_SLIDES_DESC"/>
+				
+				<field 
+					name="jt_max_slides" 
+					type="text" 
+					default="4" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_MAX_SLIDES_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_MAX_SLIDES_DESC"/>
+					
+				
+				<field 
+					name="jt_move_slides" 
+					type="text" 
+					default="0" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_MOVE_SLIDES_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_MOVE_SLIDES_DESC"/>
+
+				
+				<field 
+					name="jt_slide_width" 
+					type="text" 
+					default="100" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_SLIDE_WIDTH_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_SLIDE_WIDTH_DESC"/>
+					
+					
+				<field 
+					name="jt_slide_margin" 
+					type="text" 
+					default="10" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_SLIDE_MARGIN_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_SLIDE_MARGIN_DESC"/>
+					
+					
+						
+				<field
+					name="jt_adaptive_height"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				
+				<field 
+					name="jt_adaptive_height_speed" 
+					type="text" 
+					default="500" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_SPEED_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_SPEED_DESC"/>
+				
+								
+				<field
+					name="jt_speed"
+					type="text"
+					default="500"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SPEED_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_SPEED_DESC" />				
+				<field
+					name="jt_controls"
+					type="radio"
+					class="btn-group"
+					default="true"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_CONTROLS_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_CONTROLS_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>				
+				<field
+					name="jt_auto"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTO_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTO_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+
+				<field
+					name="jt_auto_controls"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTOCONTROLS_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTOCONTROLS_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				
+				<field
+					name="jt_autohover"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTOHOVER_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTOHOVER_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+					
+				<field
+					name="jt_pause"
+					type="text"
+					default="1500"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAUSE_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAUSE_DESC" />
+					
+				
+				<field
+					name="jt_auto_delay"
+					type="text"
+					default="0"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTODELAY_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_AUTODELAY_DESC" />	
+				<field
+					name="jt_pager"
+					type="radio"
+					class="btn-group"
+					default="true"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAGER_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAGER_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>	
+				<field
+					name="jt_pager_type"
+					type="radio"
+					class="btn-group"
+					default="full"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAGERTYPE_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAGERTYPE_DESC" >
+					<option value="short">short</option>
+					<option value="full">full</option>
+				</field>
+				<field
+					name="jt_pager_saparator"
+					type="text"
+					default="/"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAGER_SAPARATOR_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_PAGER_SAPARATOR_DESC" />
+				
+				<field
+					name="jt_adaptive_height"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				
+				<field 
+					name="jt_adaptive_height_speed" 
+					type="text" 
+					default="500" 
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_SPEED_LABEL" 
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_ADAPTIVE_HEIGHT_SPEED_DESC"/>
+					
+					
+				<!--
+				<field
+					name="jt_ticker"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_TICKER_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_TICKER_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				
+				<field
+					name="jt_ticker_hover"
+					type="radio"
+					class="btn-group"
+					default="false"
+					label="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_TICKER_HOVER_LABEL"
+					description="MOD_JT_BXSLIDER_VM_PRODUCT_FIELD_JT_TICKER_HOVER_DESC" >
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field> 
+				-->
+			
+				
+			</fieldset>
+			
+					
+			<fieldset
+				name="advanced" 
+				addfieldpath="/modules/mod_jt_bxslider_vm_product/admin/elements">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+					
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					class="btn-group"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

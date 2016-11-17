@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<extension type="module" version="1.5.0"> 
+<name>mod_OS_Template_Frontend_Stylechanger</name> 
+<author>OrdaSoft - Anatoliy Emleninov</author> 
+<creationDate>2012.07.24</creationDate>
+<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+<copyright>(C) 2012 OrdaSoft, Anatoliy Emleninov</copyright>
+<authorEmail>Anatoliy Emleninov(anatoliy_kot@mail.ru)</authorEmail>
+<authorUrl>www.ordasoft.com</authorUrl>
+<version>1.0</version>
+<description> 
+</description> 
+<files> 
+<filename module="mod_OS_Template_Frontend_Stylechanger">mod_OS_Template_Frontend_Stylechanger.php</filename>
+<folder>js</folder>
+<folder>css</folder>
+<folder>images</folder>
+</files> 
+<!-- joomla 1.5
+<params>
+            <param name="count" type="text" extension="com_vehiclemanager" default="1" label="Item Count" description="The number of Vehicles to display ( default 1)" /> 
+            <param name="words" type="text" extension="com_vehiclemanager" default="" label="Description Words Count" description="Word limit for Vehicle description.  Zero means no description, blank means no limit" /> 
+
+            <param name="sortnewby" type="list" extension="com_vehiclemanager" default="Last Edited" label="Sort New Title By" description="Define what is a new title">
+                <option value="0">Last Edited</option>
+                <option value="1">Last Added</option>
+            </param>
+
+            <param name="showtitle" type="list" extension="com_vehiclemanager" default="Show" label="Show Title" description="Show or hide the Vehicle Title">
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </param>
+
+          
+
+            <param name="showimage" type="list" extension="com_vehiclemanager" default="Show" label="Show Image" description="Show or hide the Vehicle Image">
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </param>
+
+            <param name="imagesize" type="text" extension="com_vehiclemanager" default="127" label="Image Height" description="Set the height of the Image (width will auto work out by keeping ratio)" />
+
+            <param name="displaytype" type="list" extension="com_vehiclemanager" default="Vertical" label="Display Orientation" description="Display either Horizontal or Vertical">
+                <option value="0">Vertical</option>
+                <option value="1">Horizontal</option>
+            </param>
+	 </params>
+	
+-->
+
+ joomla 2.5.3 
+<config>
+	<fields name="params">
+
+
+<!--        
+        <fieldset name="basic">
+			
+			<field name="defaultDesign" type="radio" default="Enable" label="Default Design" description="You can disable default design...">
+                <option value="1">Enable</option>
+                <option value="0">Disable</option>
+            </field>
+			
+			<field name="background" type="text" default="none" label="Background" description="Change color...">
+			</field>
+			
+            <field name="count" type="text" extension="com_vehiclemanager" default="1" label="Item Count" description="The number of Vehicles to display ( default 1)" /> 
+            <field name="words" type="text" extension="com_vehiclemanager" default="" label="Description Words Count" description="Word limit for Vehicle description.  Zero means no description, blank means no limit" /> 
+			
+			
+			
+            <field name="sortnewby" type="radio" extension="com_vehiclemanager" default="Last Edited" label="Sort Vehicles By" description="Define what is a new title">
+                <option value="0">Last Edited</option>
+                <option value="1">Last Added</option>
+            </field>
+
+            <field name="showtitle" type="radio" extension="com_vehiclemanager" default="Show" label="Show Title" description="Show or hide the Vehicle Title">
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </field>
+
+          
+
+            <field name="showimage" type="radio" extension="com_vehiclemanager" default="Show" label="Show Image" description="Show or hide the Vehicle Image">
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </field>
+
+            <field name="showdescription" type="radio" extension="com_vehiclemanager" default="Show" label="Show Description" description="Show or hide the Vehicle Description">
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </field>
+
+            <field name="imagesize" type="text" extension="com_vehiclemanager" default="127" label="Image Height" description="Set the height of the Image (width will auto work out by keeping ratio)" />
+
+            <field name="displaytype" type="radio" extension="com_vehiclemanager" default="Vertical" label="Display Orientation" description="Display either Horizontal or Vertical">
+                <option value="0">Vertical</option>
+                <option value="1">Horizontal</option>
+            </field>
+
+      </fieldset>
+      
+      <fieldset name="advanced">
+        <field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="Suffix for the css class of the module, to allow individual module styling" /> 
+        <field  name="ItemId" 
+                type="text" 
+                multiple="false"
+                size="3"
+                default=""
+                label="ItemId" 
+                description="Enter Id for Menu Item vehiclemanager" />
+        
+      </fieldset>
+      -->
+      
+    </fields>
+</config>	
+	
+</extension>
